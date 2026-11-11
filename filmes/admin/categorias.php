@@ -1,4 +1,4 @@
-<?php
+<?php 
 	include('conexao.php');
 ?>
 
@@ -18,7 +18,20 @@
 <?php
 
 	if(isset($_GET['salvar'])){
-		 $nomeCategoria = $_GET['categoria'];
-		
+		$nomeCategoria = $_GET['categoria'];
+
+		 $sql = "INSERT INTO categoria (nome) values ('$nomeCategoria')";
+
+		 if($conn->query($sql)){
+		 	echo "Gravou com sucessooooooooooo!";
+		 }else {
+		 	echo "Deu ruim";
+		 }
+
 	}
-?>
+
+	$sql = "SELECT * FROM categoria"
+	$resultado = $conn->query($sql);
+
+
+ ?>
